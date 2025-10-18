@@ -15,7 +15,8 @@ const Gallery = (props) => {
                   alt="previously generated cat pic"
                   width="500"
                 />
-                <p>{pic.desc}</p>
+                <p>A {pic.breed} cat from {pic.origin}</p>
+                <p>Placeholder</p>
               </li>
             ))
           ) : (

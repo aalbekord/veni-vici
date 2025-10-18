@@ -9,21 +9,21 @@ function App() {
   const [banList, setBanList] = useState();
 
   const makeQuery = () => {
-    let query = ``
+    let query = `https://api.thecatapi.com/v1/images/search?api-key=${ACCESS_KEY}&has_breeds=1`
     callAPI(query).catch(console.error);
   }
 
   const callAPI = async (query) => {
     const response = await fetch(query);
     const json = await response.json();
+    const data = json[0]
     console.log(json)
     if(json == null) {
       alert("Something went wrong with querying!")
     }
     else {
-      let randomImage = Math.floor(Math.random() * json.info.totalrecordsperquery)
-      setCurrentImage(json.records[randomImage].baseimageurl)
-      setPrevImages((images) => [...images, {"url": json.records[randomImage].baseimageurl, "desc": "description"}])
+      setCurrentImage({"url": data.url, "weight": data["weight"], "breed": data["name"], "origin": data["origin"]})
+      setPrevImages((images) => [...images, {"url": data.url, "weight": data["weight"], "breed": data["name"], "origin": data["origin"]}])
     }
   }
   
@@ -36,7 +36,7 @@ function App() {
           {currentImage ? (
             <img
               className="cat-image"
-              src={currentImage}
+              src={currentImage.url}
               alt="A kitty cat"
             />
           ) : (
