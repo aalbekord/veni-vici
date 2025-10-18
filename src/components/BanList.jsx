@@ -1,3 +1,5 @@
+import "./BanList.css"
+
 const BanList = () => {
   return (
     <>

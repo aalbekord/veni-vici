@@ -1,6 +1,30 @@
-const Gallery = () => {
+import "./Gallery.css"
+
+const Gallery = (props) => {
   return (
     <>
+      <div className="gallery-container">
+        <h2>Previous Pieces</h2>
+        <div className="image-container">
+          {props.images && props.images.length > 0 ? (
+            props.images.map((pic, index) => (
+              <li className="gallery" key={index}>
+                <img
+                  className="gallery-piece"
+                  src={pic.url}
+                  alt="previously searched art piece"
+                  width="500"
+                />
+                <p>{pic.desc}</p>
+              </li>
+            ))
+          ) : (
+            <div>
+              <h3>You haven't searched anything yet.</h3>
+            </div>
+          )}
+        </div>
+      </div>
     </>
   )
 }
