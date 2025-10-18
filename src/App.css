@@ -44,3 +44,10 @@
 .query-button {
   background-color: red;
 }
+
+.art-image {
+  max-width: 800px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+}
