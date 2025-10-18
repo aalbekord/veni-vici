@@ -10,9 +10,9 @@ const Gallery = (props) => {
             props.images.map((pic, index) => (
               <li className="gallery" key={index}>
                 <img
-                  className="gallery-piece"
+                  className="cat-pic"
                   src={pic.url}
-                  alt="previously searched art piece"
+                  alt="previously generated cat pic"
                   width="500"
                 />
                 <p>{pic.desc}</p>
