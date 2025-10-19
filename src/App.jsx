@@ -47,11 +47,13 @@ function App() {
     const buttonText = e.target.textContent;
     if (!banList.includes(buttonText))
       setBanList((bans) => [...bans, buttonText])
+    console.log(banList)
   }
 
   const banHandleClick = (e) => {
     const buttonText = e.target.textContent;
     setBanList((bans) => bans.filter((ban) => ban !== buttonText))
+    console.log(banList)
   }
 
   return (
