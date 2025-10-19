@@ -39,11 +39,18 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<div>
+    <a href="https://www.loom.com/share/147977ec611d4845b016f9ebaa5c12b9">
+      <p>WEB 102 - Random Art Generator - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/147977ec611d4845b016f9ebaa5c12b9">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/147977ec611d4845b016f9ebaa5c12b9-2a7cb60e71978a64-full-play.gif">
+    </a>
+  </div>
 
 <!-- Replace this with whatever GIF tool you used! -->
 
-GIF created with ...
+GIF created with Loom
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
