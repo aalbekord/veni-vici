@@ -11,11 +11,11 @@ const Gallery = (props) => {
               <li className="gallery" key={index}>
                 <img
                   className="cat-pic"
-                  src={pic.url}
-                  alt="previously generated cat pic"
+                  src={`https://www.artic.edu/iiif/2/${pic.image_id}/full/843,/0/default.jpg`}
+                  alt="previously generated art piece"
                   width="500"
                 />
-                <p>A {pic.breed} cat from {pic.origin}</p>
+                <p>{pic.credit_line}, a(n) {pic.artwork_type_title} work by {pic.artist_title}</p>
                 <p>Placeholder</p>
               </li>
             ))
