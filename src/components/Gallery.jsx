@@ -16,7 +16,6 @@ const Gallery = (props) => {
                   width="500"
                 />
                 <p>{pic.credit_line}, a(n) {pic.artwork_type_title} work by {pic.artist_title}</p>
-                <p>Placeholder</p>
               </li>
             ))
           ) : (
