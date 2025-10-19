@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Gallery from "./components/Gallery"
 import BanList from "./components/BanList"
@@ -6,6 +6,11 @@ function App() {
   const [currentImage, setCurrentImage] = useState(null);
   const [prevImages, setPrevImages] = useState([]);
   const [banList, setBanList] = useState([]);
+  
+  // Runs whenever banList changes
+  useEffect(() => {
+    console.log("Updated banList:", banList);
+  }, [banList]);
 
   const makeQuery = () => {
     let query = `https://api.artic.edu/api/v1/artworks?page=${Math.floor(Math.random() * 10)}&limit=100`;
@@ -47,13 +52,11 @@ function App() {
     const buttonText = e.target.textContent;
     if (!banList.includes(buttonText))
       setBanList((bans) => [...bans, buttonText])
-    console.log(banList)
   }
 
   const banHandleClick = (e) => {
     const buttonText = e.target.textContent;
     setBanList((bans) => bans.filter((ban) => ban !== buttonText))
-    console.log(banList)
   }
 
   return (
