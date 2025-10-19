@@ -39,7 +39,7 @@ function App() {
       // there are artworks available after filtering through bans
       let random = Math.floor(Math.random() * filtered_json.length);
       setCurrentImage(filtered_json[random]);
-      setPrevImages((images) => [...images, filtered_json[random]]);
+      setPrevImages((images) => [filtered_json[random], ...images]);
     }
   }
   
@@ -59,16 +59,18 @@ function App() {
       <div className="whole-page">
         <Gallery images={prevImages}/>
         <div className="center">
-          <div>Made with <a href="https://api.artic.edu/api/v1/artworks">Art Institute of Chicago</a></div>
+          <h1>Random Art Generator</h1>
+          <p className="reference">Made possible with <a href="https://api.artic.edu/api/v1/artworks">Art Institute of Chicago</a></p>
           {currentImage ? (
             <>
+              <h2>{currentImage.credit_line}</h2>
               <div className="button-container">
                 <button className="tag" onClick={handleClick}>{currentImage.artwork_type_title}</button>
                 <button className="tag" onClick={handleClick}>{currentImage.place_of_origin}</button>
-                {currentImage.theme_titles.map((theme) => 
+                {currentImage.theme_titles?.length > 0 && currentImage.theme_titles.filter((theme) => theme.trim() !== "").map((theme) => 
                   <button className="tag" onClick={handleClick} key={theme}>{theme}</button>
                 )}
-                {currentImage.style_titles.map((style) => 
+                {currentImage.style_titles?.length > 0 && currentImage.style_titles.filter((theme) => theme.trim() !== "").map((style) => 
                   <button className="tag" onClick={handleClick} key={style}>{style}</button>
                 )}
               </div>
@@ -81,7 +83,7 @@ function App() {
           ) : (
             <div> </div>
           )}
-          <button className="query-button" onClick={makeQuery}>CALL API</button>
+          <button className="query-button" onClick={makeQuery}><b>Generate</b></button>
         </div>
         <BanList bans={banList} onClick={banHandleClick}/>
       </div>

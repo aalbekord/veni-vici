@@ -10,7 +10,7 @@ const Gallery = (props) => {
             props.images.map((pic, index) => (
               <li className="gallery" key={index}>
                 <img
-                  className="cat-pic"
+                  className="prev-img"
                   src={`https://www.artic.edu/iiif/2/${pic.image_id}/full/843,/0/default.jpg`}
                   alt="previously generated art piece"
                   width="500"
